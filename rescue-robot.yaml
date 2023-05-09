@@ -1,0 +1,22 @@
+description: The Rescue Robot Dilemma
+actions: [a_save_h1, a_save_h2, a_remain_inactive]
+background: [b_save_people]
+consequences: [saved_h1, discomfort_h1, saved_h2, discomfort_h2]
+mechanisms:
+    saved_h1: And("b_save_people", "a_save_h1")
+    discomfort_h1: a_save_h1
+    saved_h2: And("b_save_people", "a_save_h2")
+    discomfort_h2: a_save_h2
+utilities:
+    saved_h1: 10
+    discomfort_h1: -4
+    saved_h2: 10
+    discomfort_h2: -4
+    Not('saved_h1'): -10
+    Not('discomfort_h1'): 4
+    Not('saved_h2'): -10
+    Not('discomfort_h2'): 4
+intentions:
+    a_save_h1: [a_save_h1, saved_h1]
+    a_save_h2: [a_save_h2, saved_h2]
+    a_remain_inactive: [a_remain_inactive]

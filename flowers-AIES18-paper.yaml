@@ -1,0 +1,12 @@
+description: Flower Example
+actions: [give_flowers]
+patients: [bob, alice, celia]
+consequences: [celia_happy, alice_happy]
+mechanisms:
+    alice_happy: give_flowers
+    celia_happy: alice_happy
+goals:
+    give_flowers: [celia_happy]
+affects:
+    celia_happy: [[celia, +]]
+    alice_happy: [[alice, +]]
